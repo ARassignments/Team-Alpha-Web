@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap 5 -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css and js bootstrape file/css/bootstrap.min.css">
+    <link rel="stylesheet" href="cdn/bootstrap.min.css">
+
+    <style>
+        /*CSS*/
+        @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap');
+
+        :root {
+            --primary-color: rgb(60, 112, 255);
+
+        }
+
+
+        body {
+            font-family: "Unbounded";
+            color: rgb(41, 41, 41);
+        }
+
+        /*Navbar*/
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            height: 70px;
+            background: rgb(90, 128, 0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+        }
+
+        nav .navbar {
+            height: 100%;
+            max-width: 1250px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: auto;
+            padding: 0 50px;
+        }
+
+        .navbar .logo a {
+            font-size: 30px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav .navbar .nav-links {
+            line-height: 70px;
+            height: 100%;
+        }
+
+        nav .navbar .links {
+            display: flex;
+        }
+
+        nav .navbar .links li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0 14px;
+        }
+
+        nav .navbar .links li a {
+            height: 100%;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .links li:hover .htmlcss-arrow,
+        .links li:hover .js-arrow {
+            transform: rotate(180deg);
+        }
+
+        nav .navbar .links li .arrow {
+            height: 100%;
+            width: 22px;
+            line-height: 70px;
+            text-align: center;
+            display: inline-block;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        nav .navbar .links li .sub-menu {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            line-height: 40px;
+            background: rgb(90, 128, 0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 4px 4px;
+            display: none;
+            z-index: 2;
+        }
+
+        nav .navbar .links li:hover .htmlCss-sub-menu,
+        nav .navbar .links li:hover .js-sub-menu {
+            display: block;
+        }
+
+        .navbar .links li .sub-menu li {
+            padding: 0 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar .links li .sub-menu a {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .navbar .links li .sub-menu .more-arrow {
+            line-height: 40px;
+        }
+
+        .navbar .links li .sub-menu .more-sub-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            border-radius: 0 4px 4px 4px;
+            z-index: 1;
+            display: none;
+        }
+
+        .links li .sub-menu .more:hover .more-sub-menu {
+            display: block;
+        }
+
+        .navbar .search-box {
+            position: relative;
+            height: 40px;
+            width: 40px;
+        }
+
+        .navbar .search-box i {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            line-height: 40px;
+            text-align: center;
+            font-size: 22px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .search-box .input-box {
+            position: absolute;
+            right: calc(100% - 40px);
+            top: 80px;
+            height: 60px;
+            width: 300px;
+            background: rgb(90, 128, 0);
+            border-radius: 6px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        .navbar.showInput .search-box .input-box {
+            top: 65px;
+            opacity: 1;
+            pointer-events: auto;
+            background: rgb(90, 128, 0);
+        }
+
+        #btn {
+            height: 40px;
+            text-decoration: none;
+            padding-left: 25px;
+            font-size: 18px;
+            color: beige;
+            font-weight: 30px;
+        }
+
+        #btn:hover {
+            text-decoration: underline;
+        }
+
+        .search-box .input-box::before {
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            background: rgb(90, 128, 0);
+            right: 10px;
+            top: -6px;
+            transform: rotate(45deg);
+        }
+
+        .search-box .input-box input {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 4px;
+            transform: translate(-50%, -50%);
+            height: 35px;
+            width: 280px;
+            outline: none;
+            padding: 0 15px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .navbar .nav-links .sidebar-logo {
+            display: none;
+        }
+
+        .navbar .bx-menu {
+            display: none;
+        }
+
+        @media (max-width:920px) {
+            nav .navbar {
+                max-width: 100%;
+                padding: 0 25px;
+            }
+
+            nav .navbar .logo a {
+                font-size: 27px;
+            }
+
+            nav .navbar .links li {
+                padding: 0 10px;
+                white-space: nowrap;
+            }
+
+            nav .navbar .links li a {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width:800px) {
+
+            .navbar .bx-menu {
+                display: block;
+            }
+
+            nav .navbar .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                display: block;
+                max-width: 270px;
+                width: 100%;
+                background: rgb(90, 128, 0);
+                line-height: 40px;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                transition: all 0.5s ease;
+                z-index: 1000;
+            }
+
+            .navbar .nav-links .sidebar-logo {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .sidebar-logo .logo-name {
+                font-size: 25px;
+                color: #fff;
+            }
+
+            .sidebar-logo i,
+            .navbar .bx-menu {
+                font-size: 25px;
+                color: #fff;
+            }
+
+            nav .navbar .links {
+                display: block;
+                margin-top: 20px;
+            }
+
+            nav .navbar .links li .arrow {
+                line-height: 40px;
+            }
+
+            nav .navbar .links li {
+                display: block;
+            }
+
+            nav .navbar .links li .sub-menu {
+                position: relative;
+                top: 0;
+                box-shadow: none;
+                display: none;
+            }
+
+            nav .navbar .links li .sub-menu li {
+                border-bottom: none;
+
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu {
+                display: none;
+                position: relative;
+                left: 0;
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu li {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .links li:hover .htmlcss-arrow,
+            .links li:hover .js-arrow {
+                transform: rotate(0deg);
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu {
+                display: none;
+            }
+
+            .navbar .links li .sub-menu .more span {
+                /* background: red; */
+                display: flex;
+                align-items: center;
+                /* justify-content: space-between; */
+            }
+
+            .links li .sub-menu .more:hover .more-sub-menu {
+                display: none;
+            }
+
+            nav .navbar .links li:hover .htmlCss-sub-menu,
+            nav .navbar .links li:hover .js-sub-menu {
+                display: none;
+            }
+
+            .navbar .nav-links.show1 .links .htmlCss-sub-menu,
+            .navbar .nav-links.show3 .links .js-sub-menu,
+            .navbar .nav-links.show2 .links .more .more-sub-menu {
+                display: block;
+            }
+
+            .navbar .nav-links.show1 .links .htmlcss-arrow,
+            .navbar .nav-links.show3 .links .js-arrow {
+                transform: rotate(180deg);
+            }
+
+            .navbar .nav-links.show2 .links .more-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width:370px) {
+            nav .navbar .nav-links {
+                max-width: 100%;
+            }
+        }
+
+        /*Navbar*/
+
+        main {
+            width: 100%;
+            min-height: 100vh;
+            background-image: url(../images/bg.jpg);
+            background-size: cover;
+            display: grid;
+            padding: 100px 0 70px 0;
+            align-content: center;
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            height: auto;
+            box-shadow: 0px 0px 90px 0px rgba(19, 19, 19, 0.08);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sideImg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .sideImg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rating {
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+            height: 100%;
+            padding: 65px 75px;
+        }
+
+        .ratingTxt * {
+            margin: 0;
+        }
+
+        .mainHeading {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .ratingdesc {
+            font-size: 14px;
+            color: rgb(88, 88, 88);
+        }
+
+        form {
+            border-top: solid 1px rgb(237, 237, 237);
+            border-bottom: solid 1px rgb(237, 237, 237);
+            margin: 40px 0;
+            padding: 30px 0;
+        }
+
+        .ratingicons {
+            display: flex;
+            width: 75%;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .ratingicons img {
+            width: 21%;
+            cursor: pointer;
+            transition: 0.5s;
+            border-radius: 50%;
+            background-color: transparent;
+            height: 71px;
+            padding: 8px;
+        }
+
+        .ratingicons img.active {
+            background-color: rgb(241, 244, 250);
+        }
+
+        .inputField {
+            width: 100%;
+            height: auto;
+            margin-bottom: 30px;
+        }
+
+        .inputField label.ratingdesc {
+            margin-bottom: 15px;
+        }
+
+        .inputField textarea {
+            border: solid 3px rgb(189, 203, 230);
+            border-radius: 12px;
+            background-color: rgba(246, 204, 0, 0);
+            height: 150px;
+            width: 87%;
+            resize: none;
+            padding: 20px;
+            transition: 0.4s;
+
+        }
+
+        .inputField textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        ::placeholder {
+            font-size: 10px;
+            color: rgb(209, 209, 209);
+        }
+
+        .subHeading {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .radioSingle {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .radioSingle input {
+            border: solid 2px rgb(189, 203, 230);
+            border-radius: 50%;
+            background-color: rgb(255, 255, 255);
+            width: 32px;
+            height: 32px;
+            margin-right: 12px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .radioSingle input::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            width: 18px;
+            height: 18px;
+            display: none;
+        }
+
+        .radioSingle input:checked::before {
+            display: block;
+        }
+
+        .sendCancel {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .sendCancel button {
+            border-radius: 32px;
+            background-color: var(--primary-color);
+            height: 63px;
+            width: 47%;
+            border: 0;
+            font-size: 15px;
+            color: rgb(255, 255, 255);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sendCancel .cancel {
+            border: solid 2px rgb(189, 203, 230);
+            background-color: rgb(255, 255, 255);
+            color: rgb(41, 41, 41);
+        }
+
+        .sendCancel button::before,
+        .sendCancel button::after {
+            content: "";
+            position: absolute;
+            right: 100%;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(50% 0, 100% 0, 50% 100%, 0% 100%);
+            transition: 0.4s;
+            z-index: 0;
+
+
+        }
+
+        .sendCancel button:hover::before,
+        .sendCancel button:hover::after {
+            right: -100%;
+        }
+
+        .sendCancel button::after {
+            transition-delay: 0.2s;
+
+
+        }
+
+        .cross {
+            border-radius: 50%;
+            background-color: rgb(58, 58, 58);
+            width: 62px;
+            height: 62px;
+            position: absolute;
+            top: -32px;
+            right: -12px;
+            display: grid;
+            place-content: center;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .thankyou {
+            background-image: url(../images/thankyou.jpg);
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+            min-height: 600px;
+            text-align: center;
+            display: grid;
+            place-content: center;
+            padding: 40px 150px;
+        }
+
+        .thankyou img {
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        .thankyouHeading {
+            font-size: 40px;
+            color: rgb(41, 41, 41);
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .subscribe {
+            background-color: rgb(98, 136, 158);
+            box-shadow: 0px 0px 90px 0px rgba(19, 19, 19, 0.08);
+            width: 100%;
+            border-radius: 100px;
+            height: 85px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px 0 40px;
+        }
+
+        .subscribe::before {
+            content: "";
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0px 0px 90px 0px rgba(19, 19, 19, 0.08);
+            height: 85px;
+            width: 97%;
+            border-radius: inherit;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .subscribe input,
+        .subscribe button {
+            position: relative;
+            z-index: 10;
+        }
+
+        .subscribe input {
+            border: 0;
+            background-color: transparent;
+            width: max-content;
+
+        }
+
+        .subscribe input:focus {
+            outline: none;
+        }
+
+        .subscribe input::placeholder {
+            font-size: 12px;
+            color: rgb(106, 106, 106);
+        }
+
+        .subscribe button {
+            border-radius: 50%;
+            background-color: rgb(98, 136, 158);
+            width: 70px;
+            height: 70px;
+            font-size: 16px;
+            display: grid;
+            place-content: center;
+            color: rgb(255, 255, 255);
+            border: 0;
+            transition: 0.5s;
+        }
+
+        .subscribe button i {
+            transition: 0.5s;
+        }
+
+        .subscribe button:hover i {
+            padding-left: 10px;
+        }
+
+        /*CSS*/
+        .pop {
+            animation: pop 0.3s forwards ease-in-out;
+            transform: scale(2);
+            animation-delay: 0.5s;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1.0);
+            }
+        }
+
+        .delay-100 {
+            animation-delay: calc(0.5s + 100ms);
+        }
+
+        .delay-200 {
+            animation-delay: calc(0.5s + 200ms);
+        }
+
+        .delay-300 {
+            animation-delay: calc(0.5s + 300ms);
+        }
+
+        .delay-400 {
+            animation-delay: calc(0.5s + 400ms);
+        }
+
+        .delay-500 {
+            animation-delay: calc(0.5s + 500ms);
+        }
+
+        .popup {
+            animation: popup 0.5s linear forwards;
+        }
+
+        @keyframes popup {
+            0% {
+                transform: scale(0.5) translateY(-200%);
+            }
+
+            50% {
+                transform: scale(0.5) translateY(0);
+            }
+
+            100% {
+                transform: scale(1.0) translateY(0);
+            }
+        }
+
+        .popup-reverse {
+            animation: popup-reverse 0.5s linear forwards;
+        }
+
+        @keyframes popup-reverse {
+            100% {
+                transform: scale(0.5) translateY(-200%);
+            }
+
+            50% {
+                transform: scale(0.5) translateY(0);
+            }
+
+            0% {
+                transform: scale(1.0) translateY(0);
+            }
+        }
+
+        /* large screens */
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1140px;
+            }
+
+            .thankyouPage .container {
+                max-width: 800px;
+            }
+
+            .dt-45 {
+                width: 45%;
+            }
+
+            .dt-55 {
+                width: 55%;
+            }
+        }
+
+
+        @media (max-width: 1500px) {
+            .container {
+                max-width: 1085px;
+            }
+
+            .rating {
+                padding: 65px 55px;
+            }
+        }
+
+
+        /* Desktops/Laptops */
+        @media (max-width: 1200px) {}
+
+        /* Laptops */
+        @media (max-width: 1024px) {
+            .cross {
+                right: 0;
+            }
+
+
+        }
+
+        /* Tablets */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 600px;
+            }
+
+            .tab-100 {
+                width: 100%;
+            }
+
+            .order_c {
+                order: 2;
+                display: none;
+            }
+
+            .thankyou {
+                padding: 40px 80px;
+                height: auto;
+            }
+
+            .thankyouHeading {
+                font-size: 30px;
+            }
+        }
+
+        /* mobile */
+        @media (max-width: 480px) {
+            main {
+                padding: 40px 0;
+            }
+
+            .rating {
+                padding: 50px 20px;
+            }
+
+            .mainHeading {
+                font-size: 20px;
+            }
+
+            .ratingdesc {
+                font-size: 10px;
+            }
+
+            form {
+                margin: 20px 0;
+                padding: 15px 0;
+            }
+
+            .ratingicons {
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: start;
+            }
+
+            .ratingicons img {
+                width: 71px;
+            }
+
+            .inputField textarea {
+                width: 100%;
+            }
+
+            .subHeading {
+                font-size: 12px;
+            }
+
+            .sendCancel {
+                flex-wrap: wrap;
+            }
+
+            .sendCancel button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+
+            .thankyou {
+                padding: 40px 20px;
+            }
+
+        }
+    </style>
+
+
+
+
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <i class='bx bx-menu'></i>
+            <div class="logo"><img class="mb-2" style="border-radius: 50%;" src="./image/logo.jpg" width="40px"
+                    height="40px" alt=""><a href="#">Plant</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name"></span>
+                    <i class='bx bx-x'></i>
+                </div>
+                <ul class="links">
+                    <li><a href="./Home.html">Home</a></li>
+                    <li>
+                        <a href="#">Indoor Plants</a>
+                        <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                        <ul class="htmlCss-sub-menu sub-menu">
+                            <li><a href="./Cactus in.html">Cactus</a></li>
+                            <li><a href="./Succulents in.html">Succulent</a></li>
+                            <li><a href="./Air Purifying Plant in.html">Air Purifying Plants</a></li>
+                            <li><a href="./Hardy plant in.html">Hardy Plants</a></li>
+                            <li><a href="./Vastu Plant in.html">Vastu Plants</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Outdoor Plants</a>
+                        <i class='bx bxs-chevron-down js-arrow arrow '></i>
+                        <ul class="js-sub-menu sub-menu">
+                            <li><a href="./Fruit Trees And Shrubs out.html">Fruit Trees & Shrubs</a></li>
+                            <li><a href="./Ever green Trees out.html">Ever Green Trees</a></li>
+                            <li><a href="./Flowering Trees out.html">Flowering Trees</a></li>
+                            <li><a href="./Shrubs And Hedges out.html">Shrubs &Hedges</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./infor.html">Plant Info</a></li>
+                    <li><a href="./contact.html">Cotact Us</a></li>
+                    <li><a href="./feedbackform.html">Feedback</a></li>
+                    <a href="./sign in login.html" id="btn">Log In</a>
+                </ul>
+            </div>
+            <div class="search-box">
+                <i class='bx bx-search'></i>
+                <div class="input-box">
+                    <input type="text" placeholder="Search..." id="search-input">
+                </div>
+            </div>
+            <div class="cart-icon">
+                <i class="bx bx-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+    <main class="overflow-hideen">
+        <div class="animationTrigger container position-relative popup">
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-md-5 dt-45 pe-0 order_c tab-100">
+                        <div class="sideImg">
+                            <img src="image/user.jpg" alt="user">
+                        </div>
+                    </div>
+                    <div class="col-md-7 dt-55 ps-0 tab-100">
+                        <div class="rating">
+                            <article class="ratingTxt">
+                                <h1 class="mainHeading">
+                                    Give Feedback
+                                </h1>
+                                <p class="ratingdesc">What do you think of the ediing tool?</p>
+                            </article>
+
+                            <form method="post" novalidate>
+                                <div class="ratingicons">
+                                    <img class="pop" src="image/happy1.png" alt="emoji">
+                                    <img class="pop delay-100" src="image/happy2.png" alt="emoji">
+                                    <img class="pop delay-200" src="image/happy3.png" alt="emoji">
+                                    <img class="pop delay-300" src="image/happy4.png" alt="emoji">
+                                    <img class="pop delay-400" src="image/sad.png" alt="emoji">
+                                </div>
+                                <div class="inputField">
+                                    <label class="ratingdesc" for="message">Do you have thoughts you 'd like to
+                                        share?</label>
+                                    <textarea name="message" id="message" placeholder="Here....."></textarea>
+                                </div>
+                                <div class="radiofield">
+                                    <h3 class="subHeading">May we follow you up on your feedback?</h3>
+                                    <div class="d-flex">
+                                        <div class="radioSingle">
+                                            <input type="radio" name="followup">
+                                            <label class="subHeading" for="followup">Yes</label>
+                                        </div>
+                                        <div class="radioSingle">
+                                            <input type="radio" name="followup">
+                                            <label class="subHeading" for="followup">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="sendCancel">
+                                <button id="sub">Send</button>
+                                <button class="cancel">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cross">
+                X
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+    <!-- Bootstrap 5 -->
+    <script src="cdn/bootstrap.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="cdn/jquery-3.6.4.min.js"></script>
+
+    <!-- My JS -->
+    <script src="cdn/custom.js"></script>
+
+    <p class="text-center pt-3 mt-5 " style="background-color: rgb(90, 128, 0)">&copy;2024 Team Alpha | All Rights Reserved</p>
+    <script>
+        /* Navbar*/
+        let navbar = document.querySelector(".navbar");
+        let searchBox = document.querySelector(".search-box .bx-search");
+
+        searchBox.addEventListener("click", () => {
+            navbar.classList.toggle("showInput");
+            if (navbar.classList.contains("showInput")) {
+                searchBox.classList.replace("bx-search", "bx-x");
+            } else {
+                searchBox.classList.replace("bx-x", "bx-search");
+            }
+        });
+
+        let navLinks = document.querySelector(".nav-links");
+        let menuOpenBtn = document.querySelector(".navbar .bx-menu");
+        let menuCloseBtn = document.querySelector(".nav-links .bx-x");
+        menuOpenBtn.onclick = function () {
+            navLinks.style.left = "0";
+        }
+        menuCloseBtn.onclick = function () {
+            navLinks.style.left = "-100%";
+        }
+
+        let htmlcssArrow = document.querySelector(".htmlcss-arrow");
+        htmlcssArrow.onclick = function () {
+            navLinks.classList.toggle("show1");
+        }
+        let moreArrow = document.querySelector(".more-arrow");
+        moreArrow.onclick = function () {
+            navLinks.classList.toggle("show2");
+        }
+        let jsArrow = document.querySelector(".js-arrow");
+        jsArrow.onclick = function () {
+            navLinks.classList.toggle("show3");
+        }
+        /* Navbar*/
+    </script>
+</body>
+
+</html>

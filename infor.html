@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Information Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css and js bootstrape file/css/bootstrap.min.css">
+    <style>
+        /*Navbar*/
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-image: url(./image/background.jpg);
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            height: 70px;
+            background: rgb(90, 128, 0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+        }
+
+        nav .navbar {
+            height: 100%;
+            max-width: 1250px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: auto;
+            padding: 0 50px;
+        }
+
+        .navbar .logo a {
+            font-size: 30px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav .navbar .nav-links {
+            line-height: 70px;
+            height: 100%;
+        }
+
+        nav .navbar .links {
+            display: flex;
+        }
+
+        nav .navbar .links li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0 14px;
+        }
+
+        nav .navbar .links li a {
+            height: 100%;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .links li:hover .htmlcss-arrow,
+        .links li:hover .js-arrow {
+            transform: rotate(180deg);
+        }
+
+        nav .navbar .links li .arrow {
+            height: 100%;
+            width: 22px;
+            line-height: 70px;
+            text-align: center;
+            display: inline-block;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        nav .navbar .links li .sub-menu {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            line-height: 40px;
+            background: rgb(90, 128, 0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 4px 4px;
+            display: none;
+            z-index: 2;
+        }
+
+        nav .navbar .links li:hover .htmlCss-sub-menu,
+        nav .navbar .links li:hover .js-sub-menu {
+            display: block;
+        }
+
+        .navbar .links li .sub-menu li {
+            padding: 0 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar .links li .sub-menu a {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .navbar .links li .sub-menu .more-arrow {
+            line-height: 40px;
+        }
+
+        .navbar .links li .sub-menu .more-sub-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            border-radius: 0 4px 4px 4px;
+            z-index: 1;
+            display: none;
+        }
+
+        .links li .sub-menu .more:hover .more-sub-menu {
+            display: block;
+        }
+
+        .navbar .search-box {
+            position: relative;
+            height: 40px;
+            width: 40px;
+        }
+
+        .navbar .search-box i {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            line-height: 40px;
+            text-align: center;
+            font-size: 22px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .search-box .input-box {
+            position: absolute;
+            right: calc(100% - 40px);
+            top: 80px;
+            height: 60px;
+            width: 300px;
+            background: rgb(90, 128, 0);
+            border-radius: 6px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        .navbar.showInput .search-box .input-box {
+            top: 65px;
+            opacity: 1;
+            pointer-events: auto;
+            background: rgb(90, 128, 0);
+        }
+
+        #btn {
+            height: 40px;
+            text-decoration: none;
+            padding-left: 25px;
+            font-size: 18px;
+            color: beige;
+            font-weight: 30px;
+        }
+
+        #btn:hover {
+            text-decoration: underline;
+        }
+
+        .search-box .input-box::before {
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            background: rgb(90, 128, 0);
+            right: 10px;
+            top: -6px;
+            transform: rotate(45deg);
+        }
+
+        .search-box .input-box input {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 4px;
+            transform: translate(-50%, -50%);
+            height: 35px;
+            width: 280px;
+            outline: none;
+            padding: 0 15px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .navbar .nav-links .sidebar-logo {
+            display: none;
+        }
+
+        .navbar .bx-menu {
+            display: none;
+        }
+
+        @media (max-width:920px) {
+            nav .navbar {
+                max-width: 100%;
+                padding: 0 25px;
+            }
+
+            nav .navbar .logo a {
+                font-size: 27px;
+            }
+
+            nav .navbar .links li {
+                padding: 0 10px;
+                white-space: nowrap;
+            }
+
+            nav .navbar .links li a {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width:800px) {
+
+            .navbar .bx-menu {
+                display: block;
+            }
+
+            nav .navbar .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                display: block;
+                max-width: 270px;
+                width: 100%;
+                background: rgb(90, 128, 0);
+                line-height: 40px;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                transition: all 0.5s ease;
+                z-index: 1000;
+            }
+
+            .navbar .nav-links .sidebar-logo {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .sidebar-logo .logo-name {
+                font-size: 25px;
+                color: #fff;
+            }
+
+            .sidebar-logo i,
+            .navbar .bx-menu {
+                font-size: 25px;
+                color: #fff;
+            }
+
+            nav .navbar .links {
+                display: block;
+                margin-top: 20px;
+            }
+
+            nav .navbar .links li .arrow {
+                line-height: 40px;
+            }
+
+            nav .navbar .links li {
+                display: block;
+            }
+
+            nav .navbar .links li .sub-menu {
+                position: relative;
+                top: 0;
+                box-shadow: none;
+                display: none;
+            }
+
+            nav .navbar .links li .sub-menu li {
+                border-bottom: none;
+
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu {
+                display: none;
+                position: relative;
+                left: 0;
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu li {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .links li:hover .htmlcss-arrow,
+            .links li:hover .js-arrow {
+                transform: rotate(0deg);
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu {
+                display: none;
+            }
+
+            .navbar .links li .sub-menu .more span {
+                /* background: red; */
+                display: flex;
+                align-items: center;
+                /* justify-content: space-between; */
+            }
+
+            .links li .sub-menu .more:hover .more-sub-menu {
+                display: none;
+            }
+
+            nav .navbar .links li:hover .htmlCss-sub-menu,
+            nav .navbar .links li:hover .js-sub-menu {
+                display: none;
+            }
+
+            .navbar .nav-links.show1 .links .htmlCss-sub-menu,
+            .navbar .nav-links.show3 .links .js-sub-menu,
+            .navbar .nav-links.show2 .links .more .more-sub-menu {
+                display: block;
+            }
+
+            .navbar .nav-links.show1 .links .htmlcss-arrow,
+            .navbar .nav-links.show3 .links .js-arrow {
+                transform: rotate(180deg);
+            }
+
+            .navbar .nav-links.show2 .links .more-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width:370px) {
+            nav .navbar .nav-links {
+                max-width: 100%;
+            }
+        }
+
+        /*Navbar*/
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <i class='bx bx-menu'></i>
+            <div class="logo"><img class="mb-2" style="border-radius: 50%;" src="./image/logo.jpg" width="40px"
+                    height="40px" alt=""><a href="#">Plant</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name"></span>
+                    <i class='bx bx-x'></i>
+                </div>
+                <ul class="links">
+                    <li><a href="./Home.html">Home</a></li>
+                    <li>
+                        <a href="#">Indoor Plants</a>
+                        <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                        <ul class="htmlCss-sub-menu sub-menu">
+                            <li><a href="./Cactus in.html">Cactus</a></li>
+                            <li><a href="./Succulents in.html">Succulent</a></li>
+                            <li><a href="./Air Purifying Plant in.html">Air Purifying Plants</a></li>
+                            <li><a href="./Hardy plant in.html">Hardy Plants</a></li>
+                            <li><a href="./Vastu Plant in.html">Vastu Plants</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Outdoor Plants</a>
+                        <i class='bx bxs-chevron-down js-arrow arrow '></i>
+                        <ul class="js-sub-menu sub-menu">
+                            <li><a href="./Fruit Trees And Shrubs out.html">Fruit Trees & Shrubs</a></li>
+                            <li><a href="./Ever green Trees out.html">Ever Green Trees</a></li>
+                            <li><a href="./Flowering Trees out.html">Flowering Trees</a></li>
+                            <li><a href="./Shrubs And Hedges out.html">Shrubs &Hedges</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./infor.html">Plant Info</a></li>
+                    <li><a href="./contact.html">Cotact Us</a></li>
+                    <li><a href="./feedbackform.html">Feedback</a></li>
+                    <a href="./sign in login.html" id="btn">Log In</a>
+                </ul>
+            </div>
+            <div class="search-box">
+                <i class='bx bx-search'></i>
+                <div class="input-box">
+                    <input type="text" placeholder="Search..." id="search-input">
+                </div>
+            </div>
+            <div class="cart-icon">
+                <i class="bx bx-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="text-center mb-4">
+            <h1 style=" color: rgb(148, 2, 2);">Plant Information</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <img src="image/Learn to Draw a Sunflower in Procreate for Beginners.jpg" class="img-fluid rounded"
+                    alt="Sunflower">
+            </div>
+            <div class="col-md-6 pt-5">
+                <h2 style=" color: #fffb00;">Helianthus Annuus :</h2>
+                <p style=" color: #fff;">The sunflower is a large annual forb of the genus *Helianthus* grown as a crop
+                    for its edible oil
+                    and
+                    seeds. This plant is also used as food and medicine.
+
+                    <br>
+                    The common sunflower (Helianthus annuus) is a species of large annual forb of the daisy family
+                    Asteraceae. The common sunflower is harvested for its edible oily seeds which are used in the
+                    production of cooking oil, as well as other uses such as food for livestock, bird food, and planting
+                    in domestic gardens for aesthetics. Wild plants are known for their multiple flower heads, whereas
+                    the domestic sunflower often possesses a single large flower head atop an unbranched stem.
+                    <br>
+                    The plant was first domesticated in the Americas. Sunflower seeds were brought to Europe from the
+                    Americas in the 16th century, where, along with sunflower oil, they became a widespread cooking
+                    ingredient. With time, the bulk of industrial-scale production has shifted to Eastern Europe, and
+                    (as of 2020) Russia and Ukraine together produce over half of worldwide seed production.
+                </p>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-md-6">
+                <h2 style=" color: #fffb00;">Succulents :</h2>
+                <p style=" color: #fff;">Succulents are plants with thick fleshy and juicy leaves which are filled with
+                    water inside them. They are generally used as ornamental plants including aloe, kalanchoes,
+                    haworthia, gastaria, etc. They belong to the family Aizoaceae, Cactaceae, and Crassulaceae which
+                    dominates all the varieties. These plants are native to arid and semi-arid regions. Being desert
+                    plants they have a deep and broad root system that helps them to sustain. One should provide proper
+                    sunlight and watering intervals to the succulents so that they attain proper growth and maintenance.
+                    The most common problem with succulents is overwatering which results in the condition of root rot.
+                    Plants like Lakshmi kamal, Vishnu kamal, and Jade plants are used as Vastu plants for bringing peace
+                    and prosperity to one's house.
+                    <br>
+                    succulent, any plant with thick fleshy tissues adapted to water storage. Some succulents (e.g.,
+                    cacti) store water only in the stem and have no leaves or very small leaves, whereas others (e.g.,
+                    agaves) store water mainly in the leaves. Most succulents have deep or broad root systems and are
+                    native to either deserts or regions that have a semiarid season. Succulent plants are found in more
+                    than 60 plant families, with members of Aizoaceae, Cactaceae, and Crassulaceae being dominantly
+                    succulent.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img src="image/succulen.jpg" height="550px" width="540px" class=" rounded" alt="Succulent">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="image/Without.jpg" class="img-fluid rounded" alt="Air Purifying Plant">
+            </div>
+            <div class="col-md-6 pt-5">
+                <h2 style=" color: #fffb00;">Air Purifying Plants :</h2>
+                <p style=" color: #fff;">Without plants, life on Earth simply would not exist. No wonder that their
+                    presence at home or at work has a positive effect on our well-being and health. They remove numerous
+                    harmful substances given off by furniture, linings and devices used in offices (e.g. printers,
+                    photocopiers). By installing a green wall in an office or apartment, you do not only save space and
+                    bring in a garden, where potentially there is no space for it, but also provide adequate hydration
+                    and purification of the surrounding air.
+                    <br>
+                    Probably the most famous scientific research on the impact of plants on chemical purity of the air
+                    was carried out by the National Aeronautics and Space Administration. NASA made an experiment in
+                    1989, its results are quoted until today, and the project itself has been noted in the history of
+                    science as extremely influential.
+                    <br>
+                    NASA research has identified 18 plants that purify the air most effectively. The top eighteen
+                    include: peace lily, dwarf date palm, nephrolepis exaltata, nephrolepis obliterata, spider plant,
+                    aglaonema, bamboo palm, ficus benjamina, epipremnum aureum, anthurium andraeanum, liriope muscari,
+                    rhapis excelsa, gerbera jamesonii, dracaena fragrans, English ivy, sansevieria trifasciata, dracaena
+                    reflexa and dendranthema grandiflora.
+                    <br>
+                    The last two plants have turned out to be absolute record-breakers when it comes to detoxifying
+                    effects. Unfortunately, some of the above mentioned flowers, in addition to having cleansing
+                    properties, are also poisonous - they are perfect for a green wall in the office but it is necessary
+                    to be careful or even resign from them at home with children or animals.
+                </p>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-md-6 p-3">
+                <h2 style=" color: #fffb00;">Flowering Tree :</h2>
+                <p style=" color: #fff;">Flowering plants are plants that bear flowers and fruits, and form the clade
+                    Angiospermae commonly called angiosperms. They include all forbs
+                    (flowering plants without a woody stem), grasses and grass-like plants, a vast majority of
+                    broad-leaved trees, shrubs and vines, and most aquatic plants. The term "angiosperm" is derived from
+                    the Greek words angeion ('container, vessel') and sperma ('seed'), meaning that
+                    the seeds are enclosed within a fruit. They are by far the most diverse group of land plants with 64
+                    orders, 416 families, approximately 13,000 known genera and 300,000 known species. Angiosperms
+                    were formerly called Magnoliophyta.
+
+                    Angiosperms are distinguished from the other seed-producing plants, the gymnosperms, by having
+                    flowers, xylem consisting of vessel elements instead of tracheids, endosperm within their seeds, and
+                    fruits that completely envelop the seeds. The ancestors of flowering plants diverged from the common
+                    ancestor of all living gymnosperms before the end of the Carboniferous, over 300 million years ago.
+                    In the Cretaceous, angiosperms diversified explosively, becoming the dominant group of plants across
+                    the planet.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img src="image/flow.jpg" height="550px" width="540px" class=" rounded" alt="Sunflower">
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-md-6">
+                <img src="image/span.jpg" height="550px" width="540px" class=" rounded" alt="Succulent">
+            </div>
+            <div class="col-md-6">
+                <h2 style=" color: #fffb00;">Good Mud For Growing Plants & Tree:</h2>
+                <p style=" color: #fff;">Peat moss is generally considered better for growing plants than mud. Peat moss
+                    is made from decayed sphagnum moss and has several beneficial properties for plant growth:
+                    <br>
+                    <br>
+                    <span style="font-weight: bold;">1. </span> It is highly absorbent, allowing it to retain moisture
+                    well and provide a consistent water supply to
+                    plant roots.
+                    <br>
+                    <br>
+                    <span style="font-weight: bold;">2. </span> It is acidic, which is preferred by many plants like
+                    azaleas, rhododendrons, and blueberries.
+                    <br>
+                    <br>
+                    <span style="font-weight: bold;">3. </span> It is lightweight and helps improve soil aeration and
+                    drainage, providing an ideal growing medium.
+                    <br>
+                    <br>
+                    <span style="font-weight: bold;">4. </span> It is low in nutrients, which means it won't
+                    overfertilize plants and cause issues like excessive
+                    leaf or stem growth.
+                    <br>
+                    <br>
+                    In contrast, regular mud or soil from the ground can be dense, heavy, and may not have the ideal pH,
+                    nutrient levels, or texture for optimal plant growth. Peat moss is a more specialized and tailored
+                    growing medium compared to plain mud.
+                </p>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-md-6 p-3">
+                <h2 style=" color: #fffb00;">Sunlight For Growing Plants & Tree :</h2>
+                <p style=" color: #fff;">
+                    The energy from the Sun's rays is a crucial ingredient in how plants make their own food that helps
+                    them power all their cells. Since trees don't harvest or hunt food, they have to produce their own.
+                    The way they make their food is a unique and important chemical process called photosynthesis.
+                    <br>
+                    <br>
+                    The cells in plants and all other living things have microscopic components called organelles. One
+                    type of organelle in plant cells is the chloroplast, and it contains the pigment chlorophyll, which
+                    is what makes leaves green. When chlorophyll receives sunlight, it starts the photosynthesis
+                    reaction.
+                    <br>
+                    <br>
+                    The name photosynthesis comes from the ancient Greek words “photo,” which means light, and
+                    “synthesis,” which means to make. During this food-making process, plants take carbon dioxide from
+                    the air and water from the ground, and with the energy from sunlight, make glucose. Glucose is a
+                    very simple type of sugar. Because it is a simple compound, it is simple to make.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img src="image/sun.jpg" height="550px" width="540px" class=" rounded" alt="Sunflower">
+            </div>
+        </div>
+
+
+        <div class="mt-5">
+            <h3 class="text-center" style="font-size: 40px; color: rgb(148, 2, 2)">Gallery</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/10 cosas que no sabías de los cactus.jpg"
+                        class="rounded mb-4" alt="Sunflower Field" height="500">
+                </div>
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/How to Plant, Grow and Care for Poppy Flowers.jpg"
+                        class=" rounded mb-4" alt="Sunflower Close-Up" height="500">
+                </div>
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/Suncredible Yellow Sunflower.jpg" class=" rounded mb-4"
+                        alt="Sunflower Seeds " height="500">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/gallery1.jpg" class="rounded mb-4"
+                        alt="Sunflower Field" height="500">
+                </div>
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/gallery 2.jpg" class=" rounded mb-4"
+                        alt="Sunflower Close-Up" height="500">
+                </div>
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/gallery3.jpg" class=" rounded mb-4"
+                        alt="Sunflower Seeds " height="500">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/gallery4.jpg" class="rounded mb-4"
+                        alt="Sunflower Field" height="500">
+                </div>
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/gallery5.jpg" class=" rounded mb-4"
+                        alt="Sunflower Close-Up" height="500">
+                </div>
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/gallery6.jpg" class=" rounded mb-4"
+                        alt="Sunflower Seeds " height="500">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/gallery7.jpg" class="rounded mb-4"
+                        alt="Sunflower Field" height="500">
+                </div>
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/gallery8.jpg" class=" rounded mb-4"
+                        alt="Sunflower Close-Up" height="500">
+                </div>
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/gallery9.jpg" class=" rounded mb-4"
+                        alt="Sunflower Seeds " height="500">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/gallery10.jpg" class="rounded mb-4"
+                        alt="Sunflower Field" height="500">
+                </div>
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/galler11.jpg" class=" rounded mb-4"
+                        alt="Sunflower Close-Up" height="500">
+                </div>
+                <div class="col-md-4">
+                    <img height="500px" width="350px" src="image/gallery12.jpg" class=" rounded mb-4"
+                        alt="Sunflower Seeds " height="500">
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center mt-5">
+            <p>&copy; 2024 Plant Info. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

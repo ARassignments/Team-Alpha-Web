@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css and js bootstrape file/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        input {
+            font-family: "Poppins", sans-serif;
+        }
+
+        /*Navbar*/
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            height: 70px;
+            background: rgb(90, 128, 0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+        }
+
+        nav .navbar {
+            height: 100%;
+            max-width: 1250px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: auto;
+            padding: 0 50px;
+        }
+
+        .navbar .logo a {
+            font-size: 30px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav .navbar .nav-links {
+            line-height: 70px;
+            height: 100%;
+        }
+
+        nav .navbar .links {
+            display: flex;
+        }
+
+        nav .navbar .links li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0 14px;
+        }
+
+        nav .navbar .links li a {
+            height: 100%;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .links li:hover .htmlcss-arrow,
+        .links li:hover .js-arrow {
+            transform: rotate(180deg);
+        }
+
+        nav .navbar .links li .arrow {
+            height: 100%;
+            width: 22px;
+            line-height: 70px;
+            text-align: center;
+            display: inline-block;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        nav .navbar .links li .sub-menu {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            line-height: 40px;
+            background: rgb(90, 128, 0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 4px 4px;
+            display: none;
+            z-index: 2;
+        }
+
+        nav .navbar .links li:hover .htmlCss-sub-menu,
+        nav .navbar .links li:hover .js-sub-menu {
+            display: block;
+        }
+
+        .navbar .links li .sub-menu li {
+            padding: 0 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar .links li .sub-menu a {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .navbar .links li .sub-menu .more-arrow {
+            line-height: 40px;
+        }
+
+        .navbar .links li .sub-menu .more-sub-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            border-radius: 0 4px 4px 4px;
+            z-index: 1;
+            display: none;
+        }
+
+        .links li .sub-menu .more:hover .more-sub-menu {
+            display: block;
+        }
+
+        .navbar .search-box {
+            position: relative;
+            height: 40px;
+            width: 40px;
+        }
+
+        .navbar .search-box i {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            line-height: 40px;
+            text-align: center;
+            font-size: 22px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .search-box .input-box {
+            position: absolute;
+            right: calc(100% - 40px);
+            top: 80px;
+            height: 60px;
+            width: 300px;
+            background: rgb(90, 128, 0);
+            border-radius: 6px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        .navbar.showInput .search-box .input-box {
+            top: 65px;
+            opacity: 1;
+            pointer-events: auto;
+            background: rgb(90, 128, 0);
+        }
+
+        #btn {
+            height: 40px;
+            text-decoration: none;
+            padding-left: 25px;
+            font-size: 18px;
+            color: beige;
+            font-weight: 30px;
+        }
+
+        #btn:hover {
+            text-decoration: underline;
+        }
+
+        .search-box .input-box::before {
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            background: rgb(90, 128, 0);
+            right: 10px;
+            top: -6px;
+            transform: rotate(45deg);
+        }
+
+        .search-box .input-box input {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 4px;
+            transform: translate(-50%, -50%);
+            height: 35px;
+            width: 280px;
+            outline: none;
+            padding: 0 15px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .navbar .nav-links .sidebar-logo {
+            display: none;
+        }
+
+        .navbar .bx-menu {
+            display: none;
+        }
+
+        @media (max-width:920px) {
+            nav .navbar {
+                max-width: 100%;
+                padding: 0 25px;
+            }
+
+            nav .navbar .logo a {
+                font-size: 27px;
+            }
+
+            nav .navbar .links li {
+                padding: 0 10px;
+                white-space: nowrap;
+            }
+
+            nav .navbar .links li a {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width:800px) {
+
+            .navbar .bx-menu {
+                display: block;
+            }
+
+            nav .navbar .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                display: block;
+                max-width: 270px;
+                width: 100%;
+                background: rgb(90, 128, 0);
+                line-height: 40px;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                transition: all 0.5s ease;
+                z-index: 1000;
+            }
+
+            .navbar .nav-links .sidebar-logo {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .sidebar-logo .logo-name {
+                font-size: 25px;
+                color: #fff;
+            }
+
+            .sidebar-logo i,
+            .navbar .bx-menu {
+                font-size: 25px;
+                color: #fff;
+            }
+
+            nav .navbar .links {
+                display: block;
+                margin-top: 20px;
+            }
+
+            nav .navbar .links li .arrow {
+                line-height: 40px;
+            }
+
+            nav .navbar .links li {
+                display: block;
+            }
+
+            nav .navbar .links li .sub-menu {
+                position: relative;
+                top: 0;
+                box-shadow: none;
+                display: none;
+            }
+
+            nav .navbar .links li .sub-menu li {
+                border-bottom: none;
+
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu {
+                display: none;
+                position: relative;
+                left: 0;
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu li {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .links li:hover .htmlcss-arrow,
+            .links li:hover .js-arrow {
+                transform: rotate(0deg);
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu {
+                display: none;
+            }
+
+            .navbar .links li .sub-menu .more span {
+                /* background: red; */
+                display: flex;
+                align-items: center;
+                /* justify-content: space-between; */
+            }
+
+            .links li .sub-menu .more:hover .more-sub-menu {
+                display: none;
+            }
+
+            nav .navbar .links li:hover .htmlCss-sub-menu,
+            nav .navbar .links li:hover .js-sub-menu {
+                display: none;
+            }
+
+            .navbar .nav-links.show1 .links .htmlCss-sub-menu,
+            .navbar .nav-links.show3 .links .js-sub-menu,
+            .navbar .nav-links.show2 .links .more .more-sub-menu {
+                display: block;
+            }
+
+            .navbar .nav-links.show1 .links .htmlcss-arrow,
+            .navbar .nav-links.show3 .links .js-arrow {
+                transform: rotate(180deg);
+            }
+
+            .navbar .nav-links.show2 .links .more-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width:370px) {
+            nav .navbar .nav-links {
+                max-width: 100%;
+            }
+        }
+
+        /*Navbar*/
+        .container {
+            position: relative;
+            width: 100%;
+            background-color: #fff;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .forms-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .signin-signup {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            left: 75%;
+            width: 50%;
+            transition: 1s 0.7s ease-in-out;
+            display: grid;
+            grid-template-columns: 1fr;
+            z-index: 5;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0rem 5rem;
+            transition: all 0.2s 0.7s;
+            overflow: hidden;
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+
+        form.sign-up-form {
+            opacity: 0;
+            z-index: 1;
+        }
+
+        form.sign-in-form {
+            z-index: 2;
+        }
+
+        .title {
+            font-size: 2.2rem;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .input-field {
+            max-width: 380px;
+            width: 100%;
+            background-color: #f0f0f0;
+            margin: 10px 0;
+            height: 55px;
+            border-radius: 55px;
+            display: grid;
+            grid-template-columns: 15% 85%;
+            padding: 0 0.4rem;
+            position: relative;
+        }
+
+        .input-field i {
+            text-align: center;
+            line-height: 55px;
+            color: #acacac;
+            transition: 0.5s;
+            font-size: 1.1rem;
+        }
+
+        .input-field input {
+            background: none;
+            outline: none;
+            border: none;
+            line-height: 1;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .input-field input::placeholder {
+            color: #aaa;
+            font-weight: 500;
+        }
+
+        .social-text {
+            padding: 0.7rem 0;
+            font-size: 1rem;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-icon {
+            height: 46px;
+            width: 46px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 0.45rem;
+            color: #333;
+            border-radius: 50%;
+            border: 1px solid #333;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .social-icon:hover {
+            color: #6C63FF;
+            border-color: #6C63FF;
+        }
+
+        .btn {
+            width: 150px;
+            background-color: #6C63FF;
+            border: none;
+            outline: none;
+            height: 49px;
+            border-radius: 49px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .btn:hover {
+            color: white;
+            background-color: green;
+        }
+
+        .panels-container {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .container:before {
+            content: "";
+            position: absolute;
+            height: 2000px;
+            width: 2000px;
+            top: -10%;
+            right: 48%;
+            transform: translateY(-50%);
+            background-image: linear-gradient(-45deg, green 0%, green 100%);
+            transition: 1.8s ease-in-out;
+            border-radius: 50%;
+            z-index: 6;
+        }
+
+        .image {
+            width: 80%;
+            transition: transform 1.1s ease-in-out;
+            transition-delay: 0.4s;
+        }
+
+        .panel {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-around;
+            text-align: center;
+            z-index: 6;
+        }
+
+        .left-panel {
+            pointer-events: all;
+            padding: 3rem 17% 2rem 12%;
+        }
+
+        .right-panel {
+            pointer-events: none;
+            padding: 3rem 12% 2rem 17%;
+        }
+
+        .panel .content {
+            color: #fff;
+            transition: transform 0.9s ease-in-out;
+            transition-delay: 0.6s;
+        }
+
+        .panel h3 {
+            font-weight: 600;
+            line-height: 1;
+            font-size: 1.5rem;
+        }
+
+        .panel p {
+            font-size: 0.95rem;
+            padding: 0.7rem 0;
+        }
+
+        .btn.transparent {
+            margin: 0;
+            background: none;
+            border: 2px solid #fff;
+            width: 130px;
+            height: 41px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .right-panel .image,
+        .right-panel .content {
+            transform: translateX(800px);
+        }
+
+        /* ANIMATION */
+
+        .container.sign-up-mode:before {
+            transform: translate(100%, -50%);
+            right: 52%;
+        }
+
+        .container.sign-up-mode .left-panel .image,
+        .container.sign-up-mode .left-panel .content {
+            transform: translateX(-800px);
+        }
+
+        .container.sign-up-mode .signin-signup {
+            left: 25%;
+        }
+
+        .container.sign-up-mode form.sign-up-form {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .container.sign-up-mode form.sign-in-form {
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .container.sign-up-mode .right-panel .image,
+        .container.sign-up-mode .right-panel .content {
+            transform: translateX(0%);
+        }
+
+        .container.sign-up-mode .left-panel {
+            pointer-events: none;
+        }
+
+        .container.sign-up-mode .right-panel {
+            pointer-events: all;
+        }
+
+        @media (max-width: 870px) {
+            .container {
+                min-height: 800px;
+                height: 100vh;
+            }
+
+            .signin-signup {
+                width: 100%;
+                top: 95%;
+                transform: translate(-50%, -100%);
+                transition: 1s 0.8s ease-in-out;
+            }
+
+            .signin-signup,
+            .container.sign-up-mode .signin-signup {
+                left: 50%;
+            }
+
+            .panels-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 2fr 1fr;
+            }
+
+            .panel {
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                padding: 2.5rem 8%;
+                grid-column: 1 / 2;
+            }
+
+            .right-panel {
+                grid-row: 3 / 4;
+            }
+
+            .left-panel {
+                grid-row: 1 / 2;
+            }
+
+            .image {
+                width: 200px;
+                transition: transform 0.9s ease-in-out;
+                transition-delay: 0.6s;
+            }
+
+            .panel .content {
+                padding-right: 15%;
+                transition: transform 0.9s ease-in-out;
+                transition-delay: 0.8s;
+            }
+
+            .panel h3 {
+                font-size: 1.2rem;
+            }
+
+            .panel p {
+                font-size: 0.7rem;
+                padding: 0.5rem 0;
+            }
+
+            .btn.transparent {
+                width: 110px;
+                height: 35px;
+                font-size: 0.7rem;
+            }
+
+            .container:before {
+                width: 1500px;
+                height: 1500px;
+                transform: translateX(-50%);
+                left: 30%;
+                bottom: 68%;
+                right: initial;
+                top: initial;
+                transition: 2s ease-in-out;
+            }
+
+            .container.sign-up-mode:before {
+                transform: translate(-50%, 100%);
+                bottom: 32%;
+                right: initial;
+            }
+
+            .container.sign-up-mode .left-panel .image,
+            .container.sign-up-mode .left-panel .content {
+                transform: translateY(-300px);
+            }
+
+            .container.sign-up-mode .right-panel .image,
+            .container.sign-up-mode .right-panel .content {
+                transform: translateY(0px);
+            }
+
+            .right-panel .image,
+            .right-panel .content {
+                transform: translateY(300px);
+            }
+
+            .container.sign-up-mode .signin-signup {
+                top: 5%;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        @media (max-width: 570px) {
+            form {
+                padding: 0 1.5rem;
+            }
+
+            .image {
+                display: none;
+            }
+
+            .panel .content {
+                padding: 0.5rem 1rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            .container:before {
+                bottom: 72%;
+                left: 50%;
+            }
+
+            .container.sign-up-mode:before {
+                bottom: 28%;
+                left: 50%;
+            }
+        }
+    </style>
+    <title>Sign in / Sign up Form</title>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <i class='bx bx-menu'></i>
+            <div class="logo"><img class="mb-2" style="border-radius: 50%;" src="./image/logo.jpg" width="40px"
+                    height="40px" alt=""><a href="#">Plant</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name"></span>
+                    <i class='bx bx-x'></i>
+                </div>
+                <ul class="links">
+                    <li><a href="./Home.html">Home</a></li>
+                    <li>
+                        <a href="#">Indoor Plants</a>
+                        <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                        <ul class="htmlCss-sub-menu sub-menu">
+                            <li><a href="./Cactus in.html">Cactus</a></li>
+                            <li><a href="./Succulents in.html">Succulent</a></li>
+                            <li><a href="./Air Purifying Plant in.html">Air Purifying Plants</a></li>
+                            <li><a href="./Hardy plant in.html">Hardy Plants</a></li>
+                            <li><a href="./Vastu Plant in.html">Vastu Plants</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Outdoor Plants</a>
+                        <i class='bx bxs-chevron-down js-arrow arrow '></i>
+                        <ul class="js-sub-menu sub-menu">
+                            <li><a href="./Fruit Trees And Shrubs out.html">Fruit Trees & Shrubs</a></li>
+                            <li><a href="./Ever green Trees out.html">Ever Green Trees</a></li>
+                            <li><a href="./Flowering Trees out.html">Flowering Trees</a></li>
+                            <li><a href="./Shrubs And Hedges out.html">Shrubs &Hedges</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./infor.html">Plant Info</a></li>
+                    <li><a href="./contact.html">Cotact Us</a></li>
+                    <li><a href="./feedbackform.html">Feedback</a></li>
+                    <a href="./sign in login.html" id="btn">Log In</a>
+                </ul>
+            </div>
+            <div class="search-box">
+                <i class='bx bx-search'></i>
+                <div class="input-box">
+                    <input type="text" placeholder="Search..." id="search-input">
+                </div>
+            </div>
+            <div class="cart-icon">
+                <i class="bx bx-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form action="#" class="sign-in-form">
+                    <h2 class="title">Log in</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="nam" placeholder="Username" />
+                    </div>
+                    <span id="nameerro"></span>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="pas" placeholder="Password" />
+                    </div>
+                    <span id="passerro"></span>
+                    <input type="submit" value="Login" onclick="validations()" class="btn solid" />
+                    <p class="social-text">Or Login in with social platforms</p>
+                </form>
+                <form action="#" class="sign-up-form">
+                    <h2 class="title">Sign up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="name" placeholder="Username" />
+                    </div>
+                    <span id="nameerror"></span>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="tel" id="phone" placeholder="Phone" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="Email" />
+                    </div>
+                    <span id="emailerror"></span>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="pass" placeholder="Password" />
+                    </div>
+                    <span id="passerror"></span>
+                    <input type="submit" class="btn" onclick="validation()" value="Sign up" />
+                    <p class="social-text">Or Sign up with social platforms</p>
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content pt-5">
+                    <h3>New here ?</h3>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+                        ex ratione. Aliquid!
+                    </p>
+                    <button class="btn transparent" id="sign-up-btn">
+                        Sign up
+                    </button>
+                </div>
+                <img src="image/login.svg" class="image" alt="" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>One of us ?</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+                        laboriosam ad deleniti.
+                    </p>
+                    <button class="btn transparent" id="sign-in-btn">
+                        Log in
+                    </button>
+                </div>
+                <img src="iamge/reg.svg" class="image" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const sign_in_btn = document.querySelector("#sign-in-btn");
+        const sign_up_btn = document.querySelector("#sign-up-btn");
+        const container = document.querySelector(".container");
+
+        sign_up_btn.addEventListener("click", () => {
+            container.classList.add("sign-up-mode");
+        });
+
+        sign_in_btn.addEventListener("click", () => {
+            container.classList.remove("sign-up-mode");
+        });
+
+        function validations() {
+            var name = document.getElementById("nam").value;
+            var pass = document.getElementById("pas").value;
+
+            var namerege = /^[a-zA-Z ]{3,}$/;
+            var passrege = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-z0-9!@#$%^&*]{0,8}$/;
+
+            if (namerege.test(nam)) {
+                document.getElementById("nameerro").innerHTML = "Well Done";
+                document.getElementById("nameerro").style.color = "Green";
+            }
+            else {
+                document.getElementById("nameerro").innerHTML = "Please enter only alphabets and of minimum 3 characters";
+                document.getElementById("nameerro").style.color = "red";
+            }
+
+            if (passregex.test(pas)) {
+                document.getElementById("passerro").innerHTML = "Well Done";
+                document.getElementById("passerro").style.color = "Green";
+            }
+            else {
+                document.getElementById("passerro").innerHTML = "Please Enter 1 number,1 special character,1 capital letter and of maximum 8 character";
+                document.getElementById("passerro").style.color = "red";
+            }
+
+            localStorage.setItem("Name", nam);
+            localStorage.setItem("Pass", pas);
+        }
+
+
+        function validation() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var pass = document.getElementById("pass").value;
+            var phone = document.getElementById("phone").value;
+
+            var nameregex = /^[a-zA-Z ]{3,}$/;
+            var emailregex = /^[a-zA-Z0-9 ]{3,}@[a-zA-Z ]{5,7}.[a-zA-Z]{3}$/;
+            var passregex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-z0-9!@#$%^&*]{0,8}$/;
+            var phoneregex = /^[0-9]{11}$/;
+
+            if (nameregex.test(name)) {
+                document.getElementById("nameerror").innerHTML = "Well Done";
+                document.getElementById("nameerror").style.color = "Green";
+            }
+            else {
+                document.getElementById("nameerror").innerHTML = "Please enter only alphabets and of minimum 3 characters";
+                document.getElementById("nameerror").style.color = "red";
+            }
+
+            if (emailregex.test(email)) {
+                document.getElementById("emailerror").innerHTML = "Well Done";
+                document.getElementById("emailerror").style.color = "Green";
+            }
+            else {
+                document.getElementById("emailerror").innerHTML = "Please Match the mail formate";
+                document.getElementById("emailerror").style.color = "red";
+            }
+
+            if (passregex.test(pass)) {
+                document.getElementById("passerror").innerHTML = "Well Done";
+                document.getElementById("passerror").style.color = "Green";
+            }
+            else {
+                document.getElementById("passerror").innerHTML = "Please Enter 1 number,1 special character,1 capital letter and of maximum 8 character";
+                document.getElementById("passerror").style.color = "red";
+            }
+
+            if (phoneregex.test(phone)) {
+                document.getElementById("phoneerror").innerHTML = "Well Done";
+                document.getElementById("phoneerror").style.color = "Green";
+            }
+            else {
+                document.getElementById("phoneerror").innerHTML = "Please enter only digits and of maximum 11 numbers";
+                document.getElementById("phoneerror").style.color = "red";
+            }
+            localStorage.setItem("Name", name);
+            localStorage.setItem("Email", email);
+            localStorage.setItem("Pass", pass);
+        }
+    </script>
+</body>
+
+</html>

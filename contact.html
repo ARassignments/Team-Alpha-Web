@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>TEAM ALPHA</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css and js bootstrape file/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css and js bootstrape file/css/bootstrap.min.css">
+
+
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <style>
+        /*Navbar*/
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            height: 70px;
+            background: rgb(90, 128, 0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+        }
+
+        nav .navbar {
+            height: 100%;
+            max-width: 1250px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: auto;
+            padding: 0 50px;
+        }
+
+        .navbar .logo a {
+            font-size: 30px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav .navbar .nav-links {
+            line-height: 70px;
+            height: 100%;
+        }
+
+        nav .navbar .links {
+            display: flex;
+        }
+
+        nav .navbar .links li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0 14px;
+        }
+
+        nav .navbar .links li a {
+            height: 100%;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .links li:hover .htmlcss-arrow,
+        .links li:hover .js-arrow {
+            transform: rotate(180deg);
+        }
+
+        nav .navbar .links li .arrow {
+            height: 100%;
+            width: 22px;
+            line-height: 70px;
+            text-align: center;
+            display: inline-block;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        nav .navbar .links li .sub-menu {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            line-height: 40px;
+            background: rgb(90, 128, 0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 4px 4px;
+            display: none;
+            z-index: 2;
+        }
+
+        nav .navbar .links li:hover .htmlCss-sub-menu,
+        nav .navbar .links li:hover .js-sub-menu {
+            display: block;
+        }
+
+        .navbar .links li .sub-menu li {
+            padding: 0 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar .links li .sub-menu a {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .navbar .links li .sub-menu .more-arrow {
+            line-height: 40px;
+        }
+
+        .navbar .links li .sub-menu .more-sub-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            border-radius: 0 4px 4px 4px;
+            z-index: 1;
+            display: none;
+        }
+
+        .links li .sub-menu .more:hover .more-sub-menu {
+            display: block;
+        }
+
+        .navbar .search-box {
+            position: relative;
+            height: 40px;
+            width: 40px;
+        }
+
+        .navbar .search-box i {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            line-height: 40px;
+            text-align: center;
+            font-size: 22px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .search-box .input-box {
+            position: absolute;
+            right: calc(100% - 40px);
+            top: 80px;
+            height: 60px;
+            width: 300px;
+            background: rgb(90, 128, 0);
+            border-radius: 6px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        .navbar.showInput .search-box .input-box {
+            top: 65px;
+            opacity: 1;
+            pointer-events: auto;
+            background: rgb(90, 128, 0);
+        }
+
+        #btn {
+            height: 40px;
+            text-decoration: none;
+            padding-left: 25px;
+            font-size: 18px;
+            color: beige;
+            font-weight: 30px;
+        }
+
+        #btn:hover {
+            text-decoration: underline;
+        }
+
+        .search-box .input-box::before {
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            background: rgb(90, 128, 0);
+            right: 10px;
+            top: -6px;
+            transform: rotate(45deg);
+        }
+
+        .search-box .input-box input {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 4px;
+            transform: translate(-50%, -50%);
+            height: 35px;
+            width: 280px;
+            outline: none;
+            padding: 0 15px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .navbar .nav-links .sidebar-logo {
+            display: none;
+        }
+
+        .navbar .bx-menu {
+            display: none;
+        }
+
+        @media (max-width:920px) {
+            nav .navbar {
+                max-width: 100%;
+                padding: 0 25px;
+            }
+
+            nav .navbar .logo a {
+                font-size: 27px;
+            }
+
+            nav .navbar .links li {
+                padding: 0 10px;
+                white-space: nowrap;
+            }
+
+            nav .navbar .links li a {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width:800px) {
+
+            .navbar .bx-menu {
+                display: block;
+            }
+
+            nav .navbar .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                display: block;
+                max-width: 270px;
+                width: 100%;
+                background: rgb(90, 128, 0);
+                line-height: 40px;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                transition: all 0.5s ease;
+                z-index: 1000;
+            }
+
+            .navbar .nav-links .sidebar-logo {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .sidebar-logo .logo-name {
+                font-size: 25px;
+                color: #fff;
+            }
+
+            .sidebar-logo i,
+            .navbar .bx-menu {
+                font-size: 25px;
+                color: #fff;
+            }
+
+            nav .navbar .links {
+                display: block;
+                margin-top: 20px;
+            }
+
+            nav .navbar .links li .arrow {
+                line-height: 40px;
+            }
+
+            nav .navbar .links li {
+                display: block;
+            }
+
+            nav .navbar .links li .sub-menu {
+                position: relative;
+                top: 0;
+                box-shadow: none;
+                display: none;
+            }
+
+            nav .navbar .links li .sub-menu li {
+                border-bottom: none;
+
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu {
+                display: none;
+                position: relative;
+                left: 0;
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu li {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .links li:hover .htmlcss-arrow,
+            .links li:hover .js-arrow {
+                transform: rotate(0deg);
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu {
+                display: none;
+            }
+
+            .navbar .links li .sub-menu .more span {
+                /* background: red; */
+                display: flex;
+                align-items: center;
+                /* justify-content: space-between; */
+            }
+
+            .links li .sub-menu .more:hover .more-sub-menu {
+                display: none;
+            }
+
+            nav .navbar .links li:hover .htmlCss-sub-menu,
+            nav .navbar .links li:hover .js-sub-menu {
+                display: none;
+            }
+
+            .navbar .nav-links.show1 .links .htmlCss-sub-menu,
+            .navbar .nav-links.show3 .links .js-sub-menu,
+            .navbar .nav-links.show2 .links .more .more-sub-menu {
+                display: block;
+            }
+
+            .navbar .nav-links.show1 .links .htmlcss-arrow,
+            .navbar .nav-links.show3 .links .js-arrow {
+                transform: rotate(180deg);
+            }
+
+            .navbar .nav-links.show2 .links .more-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width:370px) {
+            nav .navbar .nav-links {
+                max-width: 100%;
+            }
+        }
+
+        /*Navbar*/
+        /*Footer*/
+        .footer {
+            margin-top: 100px;
+            background-color: brown;
+            padding: 70px 0;
+        }
+
+        #r {
+            margin-bottom: 50px;
+        }
+
+        .col a {
+            font-size: 18px;
+            color: #ffffff;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        #cont {
+            max-width: 1170px;
+            margin: auto;
+        }
+
+        #ro {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .footer-col {
+            width: 25%;
+            padding: 0 15px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            color: #ffffff;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .footer-col h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color: #e91e63;
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .footer-col ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 16px;
+            text-transform: capitalize;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            color: #bbbbbb;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            padding-left: 8px;
+        }
+
+        .footer-col .social link a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.5s ease;
+        }
+
+        .footer-col .social link a:hover {
+            color: #24262b;
+            background-color: #ffffff;
+        }
+
+        /*responsive*/
+        @media(max-width: 767px) {
+            #btn {
+                margin-left: 0px;
+                border: none;
+                background-color: transparent;
+                padding: 1px 10px;
+            }
+
+            .footer-col {
+                width: 50%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media(max-width: 574px) {
+            #btn {
+                margin-left: 0px;
+                border: none;
+                background-color: transparent;
+                padding: 1px 10px;
+            }
+
+            .footer-col {
+                width: 100%;
+            }
+        }
+
+        .contact {
+            background: rgba(123, 249, 129, 0.4);
+            border-style: dotted;
+            border-color: var(--bs-white);
+        }
+
+        .bg-breadcrumb {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(image/bg.jpeg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 100px 0 0 0;
+        }
+
+        #name {
+            border-radius: 1rem;
+        }
+
+        #phone {
+            border-radius: 1rem;
+        }
+
+        #email {
+            border-radius: 1rem;
+        }
+
+        #pass {
+            border-radius: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <i class='bx bx-menu'></i>
+            <div class="logo"><img class="mb-2" style="border-radius: 50%;" src="./image/logo.jpg" width="40px"
+                    height="40px" alt=""><a href="#">Plant</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name"></span>
+                    <i class='bx bx-x'></i>
+                </div>
+                <ul class="links">
+                    <li><a href="./Home.html">Home</a></li>
+                    <li>
+                        <a href="#">Indoor Plants</a>
+                        <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                        <ul class="htmlCss-sub-menu sub-menu">
+                            <li><a href="./Cactus in.html">Cactus</a></li>
+                            <li><a href="./Succulents in.html">Succulent</a></li>
+                            <li><a href="./Air Purifying Plant in.html">Air Purifying Plants</a></li>
+                            <li><a href="./Hardy plant in.html">Hardy Plants</a></li>
+                            <li><a href="./Vastu Plant in.html">Vastu Plants</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Outdoor Plants</a>
+                        <i class='bx bxs-chevron-down js-arrow arrow '></i>
+                        <ul class="js-sub-menu sub-menu">
+                            <li><a href="./Fruit Trees And Shrubs out.html">Fruit Trees & Shrubs</a></li>
+                            <li><a href="./Ever green Trees out.html">Ever Green Trees</a></li>
+                            <li><a href="./Flowering Trees out.html">Flowering Trees</a></li>
+                            <li><a href="./Shrubs And Hedges out.html">Shrubs &Hedges</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./infor.html">Plant Info</a></li>
+                    <li><a href="./contact.html">Cotact Us</a></li>
+                    <li><a href="./feedbackform.html">Feedback</a></li>
+                    <a href="./sign in login.html" id="btn">Log In</a>
+                </ul>
+            </div>
+            <div class="search-box">
+                <i class='bx bx-search'></i>
+                <div class="input-box">
+                    <input type="text" placeholder="Search..." id="search-input">
+                </div>
+            </div>
+            <div class="cart-icon">
+                <i class="bx bx-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+    <!-- Header Start -->
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h3 class="text-white display-3 mb-4">Contact Us</h1>
+                <p class="fs-5 text-white mb-4">Help today because tomorrow you may be the one who needs more helping!
+                </p>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Contact Start -->
+    <div class="container-fluid bg-light py-5">
+        <div class="container py-5">
+            <div class="contact p-5">
+                <div class="row g-4">
+                    <div class="col-xl-5">
+                        <h1 class="mb-4">Get in touch</h1>
+                        <p class="mb-4">The contact form is currently inactive. Get a functional and working contact
+                            form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and
+                            you're done. <a class="text-dark fw-bold"
+                                href="https://youtube.com/@kinfotech2406?si=MAiFMMNWVLdpDYv8">Download Now</a>.</p>
+                        <form>
+                            <div class="row gx-4 gy-3">
+                                <div class="col-xl-6">
+                                    <input id="name" type="text" class="form-control bg-white border-0 py-3 px-4"
+                                        placeholder="Your First Name">
+                                    <br>
+                                    <span id="nameerror"></span>
+                                </div>
+                                <div class="col-xl-6">
+                                    <input id="phone" type="tel" class="form-control bg-white border-0 py-3 px-4"
+                                        placeholder="Your Phone">
+                                    <br>
+                                    <span id="phoneerror"></span>
+                                </div>
+                                <div class="col-xl-6">
+                                    <input id="email" type="email" class="form-control bg-white border-0 py-3 px-4"
+                                        placeholder="Your Email">
+                                    <br>
+                                    <span id="emailerror"></span>
+                                </div>
+                                <div class="col-xl-6">
+                                    <input id="pass" type="password" class="form-control bg-white border-0 py-3 px-4"
+                                        placeholder="Password">
+                                    <br>
+                                    <span id="passerror"></span>
+                                </div>
+                                <div class="col-12">
+                                    <textarea id="in" class="form-control bg-white border-0 py-3 px-4" rows="7"
+                                        cols="10" placeholder="Your Message (Optional)"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn-hover-bg btn-dark w-100 py-3 px-5" type="submit"
+                                        onclick="validation()">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xl-7">
+                        <div>
+                            <div class="row g-4">
+                                <div class="col-lg-4">
+                                    <div class="bg-white p-4" style="border-radius: 2rem;">
+                                        <i class="fas fa-map-marker-alt fa-2x text-primary mb-2"></i>
+                                        <h4>Address</h4>
+                                        <p class="mb-0">Aptech Metro Star Gate</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="bg-white p-4" style="border-radius: 2rem; height: 133px; ">
+                                        <i class="fas fa-envelope fa-2x text-primary mb-2"></i>
+                                        <h4>Mail Us</h4>
+                                        <p class="mb-0" style="font-size: 13px; padding-top: 10px;">teamalpha@gmail.com
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="bg-white p-4"
+                                        style="margin-left: 20px; border-radius: 2rem; height: 133px;">
+                                        <i class="fa fa-phone-alt fa-2x text-primary mb-2"></i>
+                                        <h4>Contact No</h4>
+                                        <p class="mb-0">031-60320608</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <iframe class="w-100" style="height: 412px; margin-bottom: -6px;"
+                                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14477.256537922056!2d67.1518249!3d24.8872643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb339999415e0c3%3A0x36742eee0fd9c291!2sAptech%20Metro%20Star%20Gate!5e0!3m2!1sen!2s!4v1724540673451!5m2!1sen!2s"
+                                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <p class="text-center pt-3 mt-5 " style="background-color: rgb(90, 128, 0)">&copy;2024 Team Alpha | All Rights
+        Reserved</p>
+    <script src="./css and js bootstrape file/js/bootstrap.bundle.min.js"></script>
+    <script>
+        /* Navbar*/
+        let navbar = document.querySelector(".navbar");
+        let searchBox = document.querySelector(".search-box .bx-search");
+
+        searchBox.addEventListener("click", () => {
+            navbar.classList.toggle("showInput");
+            if (navbar.classList.contains("showInput")) {
+                searchBox.classList.replace("bx-search", "bx-x");
+            } else {
+                searchBox.classList.replace("bx-x", "bx-search");
+            }
+        });
+
+        let navLinks = document.querySelector(".nav-links");
+        let menuOpenBtn = document.querySelector(".navbar .bx-menu");
+        let menuCloseBtn = document.querySelector(".nav-links .bx-x");
+        menuOpenBtn.onclick = function () {
+            navLinks.style.left = "0";
+        }
+        menuCloseBtn.onclick = function () {
+            navLinks.style.left = "-100%";
+        }
+
+        let htmlcssArrow = document.querySelector(".htmlcss-arrow");
+        htmlcssArrow.onclick = function () {
+            navLinks.classList.toggle("show1");
+        }
+        let moreArrow = document.querySelector(".more-arrow");
+        moreArrow.onclick = function () {
+            navLinks.classList.toggle("show2");
+        }
+        let jsArrow = document.querySelector(".js-arrow");
+        jsArrow.onclick = function () {
+            navLinks.classList.toggle("show3");
+        }
+        /* Navbar*/
+        function validation() {
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var email = document.getElementById("email").value;
+            var pass = document.getElementById("pass").value;
+
+            var nameregex = /^[a-zA-Z ]{3,}$/;
+            var emailregex = /^[a-zA-Z0-9 ]{3,}@[a-zA-Z ]{5,7}.[a-zA-Z]{3}$/;
+            var passregex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-z0-9!@#$%^&*]{0,8}$/;
+            var phoneregex = /^[0-9]{11}$/;
+
+            if (nameregex.test(name)) {
+                document.getElementById("nameerror").innerHTML = "Well Done";
+                document.getElementById("nameerror").style.color = "Green";
+            }
+            else {
+                document.getElementById("nameerror").innerHTML = "Please enter only alphabets and of minimum 3 characters";
+                document.getElementById("nameerror").style.color = "red";
+            }
+
+            if (emailregex.test(email)) {
+                document.getElementById("emailerror").innerHTML = "Well Done";
+                document.getElementById("emailerror").style.color = "Green";
+            }
+            else {
+                document.getElementById("emailerror").innerHTML = "Please Match the mail formate";
+                document.getElementById("emailerror").style.color = "red";
+            }
+
+            if (passregex.test(pass)) {
+                document.getElementById("passerror").innerHTML = "Well Done";
+                document.getElementById("passerror").style.color = "Green";
+                alert("Data Entered Successfully")
+            }
+            else {
+                document.getElementById("passerror").innerHTML = "Please Enter 1 number,1 special character,1 capital letter and of maximum 8 character";
+                document.getElementById("passerror").style.color = "red";
+            }
+
+            if (phoneregex.test(phone)) {
+                document.getElementById("phoneerror").innerHTML = "Well Done";
+                document.getElementById("phoneerror").style.color = "Green";
+            }
+            else {
+                document.getElementById("phoneerror").innerHTML = "Please enter only digits and of maximum 11 numbers";
+                document.getElementById("phoneerror").style.color = "red";
+            }
+            localStorage.setItem("Name", name);
+            localStorage.setItem("Email", email);
+            localStorage.setItem("Pass", pass);
+        }
+    </script>
+</body>
+
+</html>
