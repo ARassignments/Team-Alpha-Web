@@ -1,42 +1,566 @@
-<html>
-<head>
-    <title>Team Alpha</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <footer class="footer">
-    <div class="waves">
-      <div class="wave" id="wave1"></div>
-      <div class="wave" id="wave2"></div>
-      <div class="wave" id="wave3"></div>
-      <div class="wave" id="wave4"></div>
-    </div>
-    <ul class="social-icon">
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-facebook"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-twitter"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-linkedin"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a></li>
-    </ul>
-    <ul class="menu">
-      <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">About</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Categories</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Feedback</a></li>
-      <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
 
-    </ul>
-    <p>&copy;2024 Team Alpha | All Rights Reserved</p>
-  </footer>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title> Responsive Drop Down Navigation Menu | CodingLab </title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css and js bootstrape file/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /*Navbar*/
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background-image: url();
+            background-attachment: fixed;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            height: 70px;
+            background: rgb(90, 128, 0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+        }
+
+        nav .navbar {
+            height: 100%;
+            max-width: 1250px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: auto;
+            padding: 0 50px;
+        }
+
+        .navbar .logo a {
+            font-size: 30px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav .navbar .nav-links {
+            line-height: 70px;
+            height: 100%;
+        }
+
+        nav .navbar .links {
+            display: flex;
+        }
+
+        nav .navbar .links li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+            padding: 0 14px;
+        }
+
+        nav .navbar .links li a {
+            height: 100%;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .links li:hover .htmlcss-arrow,
+        .links li:hover .js-arrow {
+            transform: rotate(180deg);
+        }
+
+        nav .navbar .links li .arrow {
+            height: 100%;
+            width: 22px;
+            line-height: 70px;
+            text-align: center;
+            display: inline-block;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        nav .navbar .links li .sub-menu {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            line-height: 40px;
+            background: rgb(90, 128, 0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 4px 4px;
+            display: none;
+            z-index: 2;
+        }
+
+        nav .navbar .links li:hover .htmlCss-sub-menu,
+        nav .navbar .links li:hover .js-sub-menu {
+            display: block;
+        }
+
+        .navbar .links li .sub-menu li {
+            padding: 0 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar .links li .sub-menu a {
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .navbar .links li .sub-menu .more-arrow {
+            line-height: 40px;
+        }
+
+        .navbar .links li .sub-menu .more-sub-menu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            border-radius: 0 4px 4px 4px;
+            z-index: 1;
+            display: none;
+        }
+
+        .links li .sub-menu .more:hover .more-sub-menu {
+            display: block;
+        }
+
+        .navbar .search-box {
+            position: relative;
+            height: 40px;
+            width: 40px;
+        }
+
+        .navbar .search-box i {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            line-height: 40px;
+            text-align: center;
+            font-size: 22px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .search-box .input-box {
+            position: absolute;
+            right: calc(100% - 40px);
+            top: 80px;
+            height: 60px;
+            width: 300px;
+            background: rgb(90, 128, 0);
+            border-radius: 6px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        .navbar.showInput .search-box .input-box {
+            top: 65px;
+            opacity: 1;
+            pointer-events: auto;
+            background: rgb(90, 128, 0);
+        }
+
+        #btn {
+            height: 40px;
+            text-decoration: none;
+            padding-left: 25px;
+            font-size: 18px;
+            color: beige;
+            font-weight: 30px;
+        }
+
+        #btn:hover {
+            text-decoration: underline;
+        }
+
+        .search-box .input-box::before {
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            background: rgb(90, 128, 0);
+            right: 10px;
+            top: -6px;
+            transform: rotate(45deg);
+        }
+
+        .search-box .input-box input {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 4px;
+            transform: translate(-50%, -50%);
+            height: 35px;
+            width: 280px;
+            outline: none;
+            padding: 0 15px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .navbar .nav-links .sidebar-logo {
+            display: none;
+        }
+
+        .navbar .bx-menu {
+            display: none;
+        }
+
+        @media (max-width:920px) {
+            nav .navbar {
+                max-width: 100%;
+                padding: 0 25px;
+            }
+
+            nav .navbar .logo a {
+                font-size: 27px;
+            }
+
+            nav .navbar .links li {
+                padding: 0 10px;
+                white-space: nowrap;
+            }
+
+            nav .navbar .links li a {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width:800px) {
+
+            .navbar .bx-menu {
+                display: block;
+            }
+
+            nav .navbar .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                display: block;
+                max-width: 270px;
+                width: 100%;
+                background: rgb(90, 128, 0);
+                line-height: 40px;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                transition: all 0.5s ease;
+                z-index: 1000;
+            }
+
+            .navbar .nav-links .sidebar-logo {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .sidebar-logo .logo-name {
+                font-size: 25px;
+                color: #fff;
+            }
+
+            .sidebar-logo i,
+            .navbar .bx-menu {
+                font-size: 25px;
+                color: #fff;
+            }
+
+            nav .navbar .links {
+                display: block;
+                margin-top: 20px;
+            }
+
+            nav .navbar .links li .arrow {
+                line-height: 40px;
+            }
+
+            nav .navbar .links li {
+                display: block;
+            }
+
+            nav .navbar .links li .sub-menu {
+                position: relative;
+                top: 0;
+                box-shadow: none;
+                display: none;
+            }
+
+            nav .navbar .links li .sub-menu li {
+                border-bottom: none;
+
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu {
+                display: none;
+                position: relative;
+                left: 0;
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu li {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .links li:hover .htmlcss-arrow,
+            .links li:hover .js-arrow {
+                transform: rotate(0deg);
+            }
+
+            .navbar .links li .sub-menu .more-sub-menu {
+                display: none;
+            }
+
+            .navbar .links li .sub-menu .more span {
+                /* background: red; */
+                display: flex;
+                align-items: center;
+                /* justify-content: space-between; */
+            }
+
+            .links li .sub-menu .more:hover .more-sub-menu {
+                display: none;
+            }
+
+            nav .navbar .links li:hover .htmlCss-sub-menu,
+            nav .navbar .links li:hover .js-sub-menu {
+                display: none;
+            }
+
+            .navbar .nav-links.show1 .links .htmlCss-sub-menu,
+            .navbar .nav-links.show3 .links .js-sub-menu,
+            .navbar .nav-links.show2 .links .more .more-sub-menu {
+                display: block;
+            }
+
+            .navbar .nav-links.show1 .links .htmlcss-arrow,
+            .navbar .nav-links.show3 .links .js-arrow {
+                transform: rotate(180deg);
+            }
+
+            .navbar .nav-links.show2 .links .more-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width:370px) {
+            nav .navbar .nav-links {
+                max-width: 100%;
+            }
+        }
+
+        /*Navbar*/
+        #caro {
+            background-image: url(./image/ta.jpg);
+            width: 100%;
+            height: 500px;
+        }
+
+        #caro h1 {
+            padding-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <i class='bx bx-menu'></i>
+            <div class="logo"><img class="mb-2" style="border-radius: 50%;" src="./image/logo.jpg" width="40px"
+                    height="40px" alt=""><a href="#">Plant</a></div>
+            <div class="nav-links">
+                <div class="sidebar-logo">
+                    <span class="logo-name"></span>
+                    <i class='bx bx-x'></i>
+                </div>
+                <ul class="links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li>
+                        <a href="#">Indoor Plants</a>
+                        <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                        <ul class="htmlCss-sub-menu sub-menu">
+                            <li><a href="./Cactus in.html">Cactus</a></li>
+                            <li><a href="./Succulents in.html">Succulent</a></li>
+                            <li><a href="./Air Purifying Plant in.html">Air Purifying Plants</a></li>
+                            <li><a href="./Hardy plant in.html">Hardy Plants</a></li>
+                            <li><a href="./Vastu Plant in.html">Vastu Plants</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Outdoor Plants</a>
+                        <i class='bx bxs-chevron-down js-arrow arrow '></i>
+                        <ul class="js-sub-menu sub-menu">
+                            <li><a href="./Fruit Trees And Shrubs out.html">Fruit Trees & Shrubs</a></li>
+                            <li><a href="./Ever green Trees out.html">Ever Green Trees</a></li>
+                            <li><a href="./Flowering Trees out.html">Flowering Trees</a></li>
+                            <li><a href="./Shrubs And Hedges out.html">Shrubs &Hedges</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./infor.html">Plant Info</a></li>
+                    <li><a href="./contact.html">Cotact Us</a></li>
+                    <li><a href="./feedbackform.html">Feedback</a></li>
+                    <a href="./sign in login.html" id="btn">Log In</a>
+                </ul>
+            </div>
+            <div class="search-box">
+                <i class='bx bx-search'></i>
+                <div class="input-box">
+                    <input type="text" placeholder="Search..." id="search-input">
+                </div>
+            </div>
+            <div class="cart-icon">
+                <i class="bx bx-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        <div class="container-fluid" id="caro">
+            <h1>Buy Your Dream <br>Plants</h1>
+        </div>
+    </section>
+    <section>
+        <section>
+            <div class="container-fluid mt-5 text-center" id="main">
+                <h1>Best Selling Plants & Trees</h1>
+            </div>
+        </section>
+        <section id="sec">
+            <div class="container pt-5" id="cardc">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="./image/Spiderplant.webp" height="300px" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">SPIDER PLANT AIR PURIFIER (BARE ROOTED)</h5>
+                                <p class="card-text"><strong>Price :</strong> 665 PKR</p>
+                                <a href="./Air Purifying Plant in.html" class="btn btn-success">More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="./image/Crassul.jpg" height="300px" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Crassula Jade plant (Kubber plant) Bare Rooted</h5>
+                                <p class="card-text"><strong>Price :</strong> 300 PKR</p>
+                                <a href="./Vastu Plant in.html" class="btn btn-success">More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="./image/Moonstone.jpg" height="300px" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Moonstone (Bare Rooted)</h5>
+                                <p class="card-text"><strong>Price :</strong> 698 PKR</p>
+                                <a href="./Hardy plant in.html" class="btn btn-success">More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-4">
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="./image/Gardenia1.jpg" height="300px" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Scent Amazing Gardenia</h5>
+                                <p class="card-text"><strong>Price :</strong> 7000 PKR</p>
+                                <a href="./Shrubs And Hedges out.html" class="btn btn-success">More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="./image/Sedum.jpg" height="300px" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Sedum Rubrotinctum (Bare Rooted)</h5>
+                                <p class="card-text"><strong>Price :</strong> 398 PKR</p>
+                                <a href="./Succulents in.html" class="btn btn-success">More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="./image/orange.jpg" height="300px" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">California Honey Mandarin Tree</h5>
+                                <p class="card-text"><strong>Price :</strong> 9700 PKR</p>
+                                <a href="./Fruit Trees And Shrubs out.html" class="btn btn-success">More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section>
+        <section>
+            <div class="container-fluid mt-5 text-center" id="main">
+                <h1>Plant Info</h1>
+            </div>
+        </section>
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-md-6">
+                    <img src="image/span.jpg" height="550px" width="540px" class=" rounded" alt="Succulent">
+                </div>
+                <div class="col-md-6">
+                    <h2 style=" color: #fffb00;">Good Mud For Growing Plants & Tree:</h2>
+                    <p style=" color: black;">Peat moss is generally considered better for growing plants than mud. Peat
+                        moss
+                        is made from decayed sphagnum moss and has several beneficial properties for plant growth:
+                        <br>
+                        <br>
+                        <span style="font-weight: bold;">1. </span> It is highly absorbent, allowing it to retain
+                        moisture
+                        well and provide a consistent water supply to
+                        plant roots.
+                        <br>
+                        <br>
+                        <span style="font-weight: bold;">2. </span> It is acidic, which is preferred by many plants like
+                        azaleas, rhododendrons, and blueberries.
+                        <br>
+                        <br>
+                        <span style="font-weight: bold;">3. </span> It is lightweight and helps improve soil aeration
+                        and
+                        drainage, providing an ideal growing medium.
+                        <br>
+                        <br>
+                        <span style="font-weight: bold;">4. </span> It is low in nutrients, which means it won't
+                        overfertilize plants...... <a href="./infor.html" type="submit" class="btn btn-success">Read
+                            More</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <p class="text-center pt-3 mt-5 " style="background-color: rgb(90, 128, 0)">&copy;2024 Team Alpha | All Rights Reserved</p>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>
